@@ -25,12 +25,14 @@ A modern web application for annotating, commenting, and signing PDF documents d
 ### Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone https://github.com/RiteaseApp-Org/frontend-test.git
+   git clone https://github.com/wiztemple/frontend-test
    cd frontend-test
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -38,6 +40,7 @@ A modern web application for annotating, commenting, and signing PDF documents d
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    # or
@@ -66,7 +69,7 @@ A modern web application for annotating, commenting, and signing PDF documents d
 ### Tools Overview
 
 - **Highlight** 🟨: Click and drag to highlight areas of text or content
-- **Underline** _____: Click and drag horizontally to underline text
+- **Underline** **\_**: Click and drag horizontally to underline text
 - **Comment** 💬: Click on any location to add a text comment
 - **Signature** ✍️: Click and drag to draw your signature on the document
 
@@ -108,13 +111,13 @@ Edit the `colors` array in `components/AnnotationToolbar.tsx` to customize avail
 ```typescript
 const colors = [
   { value: "#FFEB3B", label: "Yellow" },
-    { value: "#4CAF50", label: "Green" },
-    { value: "#2196F3", label: "Blue" },
-    { value: "#F44336", label: "Red" },
-    { value: "#9C27B0", label: "Purple" },
-    { value: "#FF9800", label: "Orange" },
-    { value: "#00BCD4", label: "Cyan" },
-    { value: "#607D8B", label: "Gray" },
+  { value: "#4CAF50", label: "Green" },
+  { value: "#2196F3", label: "Blue" },
+  { value: "#F44336", label: "Red" },
+  { value: "#9C27B0", label: "Purple" },
+  { value: "#FF9800", label: "Orange" },
+  { value: "#00BCD4", label: "Cyan" },
+  { value: "#607D8B", label: "Gray" },
 ];
 ```
 
@@ -138,6 +141,7 @@ To add a new annotation tool, you'll need to:
 ### Browser Compatibility
 
 This application works best with:
+
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
