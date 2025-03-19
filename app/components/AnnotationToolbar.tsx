@@ -170,7 +170,7 @@ const AnnotationToolbar: React.FC<AnnotationToolbarProps> = ({
                 <div className="absolute top-full left-0 mt-1 bg-white rounded-md shadow-lg border border-gray-200 p-2 z-50 w-48">
                   <button
                     onClick={() => {
-                      onZoomIn && onZoomIn();
+                      onZoomIn?.();
                       setShowMoreOptions(false);
                     }}
                     className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 flex items-center"
@@ -180,7 +180,7 @@ const AnnotationToolbar: React.FC<AnnotationToolbarProps> = ({
                   </button>
                   <button
                     onClick={() => {
-                      onZoomOut && onZoomOut();
+                      onZoomOut?.();
                       setShowMoreOptions(false);
                     }}
                     className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 flex items-center"
@@ -190,7 +190,7 @@ const AnnotationToolbar: React.FC<AnnotationToolbarProps> = ({
                   </button>
                   <button
                     onClick={() => {
-                      onResetZoom && onResetZoom();
+                      onResetZoom?.();
                       setShowMoreOptions(false);
                     }}
                     className="w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100 flex items-center"
@@ -203,7 +203,7 @@ const AnnotationToolbar: React.FC<AnnotationToolbarProps> = ({
 
                   <button
                     onClick={() => {
-                      onClearAnnotations && onClearAnnotations();
+                      onClearAnnotations?.();
                       setShowMoreOptions(false);
                     }}
                     className="w-full text-left px-3 py-2 rounded-md text-sm text-red-600 hover:bg-red-50 flex items-center"

@@ -11,7 +11,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import AnnotationCanvas from "./AnnotationCanvas";
 import { AnnotationTool } from "./AnnotationToolbar";
 import { Annotation } from "../types/annotation";
-import { ChevronLeft, ChevronRight, Search, FileText } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText } from "lucide-react";
 
 // Set the worker source for PDF.js
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -52,7 +52,6 @@ const PDFViewer = forwardRef<
     const [annotations, setAnnotations] = useState<Annotation[]>([]);
     const [, setDocumentTitle] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [searchText, setSearchText] = useState<string>("");
     const [thumbnails, setThumbnails] = useState<Array<string | null>>([]);
     const [showThumbnails, setShowThumbnails] = useState<boolean>(true);
     const pageRef = useRef<HTMLDivElement>(null);
@@ -133,9 +132,13 @@ const PDFViewer = forwardRef<
       generateThumbnails();
     }, [pdfUrl, numPages]);
 
-    const onPageLoadSuccess = (page: any) => {
-      const { width, height } = page.getViewport({ scale: 1 });
-      setPageSize({ width, height });
+    interface Page {
+        getViewport: ({ scale }: { scale: number }) => { width: number; height: number };
+    }
+
+    const onPageLoadSuccess = (page: Page) => {
+        const { width, height } = page.getViewport({ scale: 1 });
+        setPageSize({ width, height });
     };
 
     const handleAddAnnotation = (annotation: Annotation) => {

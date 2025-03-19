@@ -2,7 +2,7 @@
 
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import { Upload, FileText, AlertCircle, CheckCircle2, X } from "lucide-react";
+import { Upload, FileText, AlertCircle, CheckCircle2 } from "lucide-react";
 
 interface DocumentUploaderProps {
   onFileUpload: (file: File) => void;
@@ -14,8 +14,12 @@ const DocumentUploader: React.FC<DocumentUploaderProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
 
+  interface RejectedFile {
+    errors: readonly { message: string }[];
+  }
+
   const onDrop = useCallback(
-    (acceptedFiles: File[], rejectedFiles: any[]) => {
+    (acceptedFiles: File[], rejectedFiles: RejectedFile[]) => {
       setError(null);
 
       if (rejectedFiles.length > 0) {
